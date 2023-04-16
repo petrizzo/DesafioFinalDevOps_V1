@@ -5,13 +5,23 @@ services:
       context: ./frontend
     ports:
       - "3000:3000"
-  product:
+    networks:
+      - my-network   
+  products:
     build:
-      context: ./product
+      context: ./products
     ports:
       - "3001:3001"
+    networks:
+      - my-network
   shopping-cart:
     build:
       context: ./shopping-cart
     ports:
       - "3002:3002"
+    networks:
+      - my-network
+
+networks:
+  my-network:
+

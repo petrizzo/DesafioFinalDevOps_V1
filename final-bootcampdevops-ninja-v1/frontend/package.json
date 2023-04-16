@@ -7,11 +7,7 @@
       "start": "node server.js"
     },
     "author": "ROXS",
-    "license": "ISC",
-    "config": {
-      "PRODUCTS_SERVICE": "http://localhost:3001",
-      "SHOPPING_CART_SERVICE": "http://localhost:3002"
-    },
+    "license": "ISC",   
     "dependencies": {
       "express": "4.17.1"
     }

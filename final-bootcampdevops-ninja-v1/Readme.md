@@ -37,8 +37,28 @@ Aplicacion realizada en express y se expone en el puerto 3002
     -e SHOPPING_CART_SERVICE=host.docker.internal \
     ms-frontend:1.0
 
+    //usuarios de Linux
+    docker run -d -p 3000:3000 -e PRODUCTS_SERVICE=localhost:3001 -e SHOPPING_CART_SERVICE=localhost:3002 ms-frontend:1.0
+
     docker run -d -p 3001:3001 ms-products:1.0
     docker run -d -p 3002:3002 ms-shopping-cart:1.0
+
+#### Los contenedores deben compartir la misma network para evitar el problema del fetch
+docker run --name frontend --network=my-network -p 3000:3000 -d ms-frontend:1.0
+docker run --name products --network=my-network -p 3001:3001 -d ms-products:1.0
+docker run --name shopping --network=my-network -p 3002:3002 -d ms-shopping-cart:1.0
+
+#### Crear una network
+docker network create my-network
+
+#### Borrar una network
+docker network rm my-network
+
+#### En listar los contenedores conectados a una network
+docker network inspect my-network --format='{{range .Containers}}{{.Name}} {{end}}'
+
+#### Para obtener la IP del contenedor
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nombre-del-contenedor
 
 ### Adicional 
 - Crear Documentación

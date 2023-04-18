@@ -10,6 +10,7 @@ COPY . .
 
 # Instalar dependencias
 RUN npm install --no-optional && npm cache clean --force
+RUN npm install cors --save
 
 # Exponer puerto
 EXPOSE 3000

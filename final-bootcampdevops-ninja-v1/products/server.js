@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 
 
-app.get('/', function (req, res) {
+app.get('/get-products', function (req, res) {
     res.json({ 
         products: [{
             name: "laptop", 

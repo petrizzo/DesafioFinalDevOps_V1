@@ -1,0 +1,6 @@
+411  sudo docker build -t ms-frontend:1.0 frontend
+412  sudo docker build -t ms-products:1.0 products
+413  sudo docker build -t ms-shopping-cart:1.0 shopping-cart
+511  sudo docker run --name shopping --network=my-network -p 3002:3002 -d ms-shopping-cart:1.0
+512  sudo docker run --name products --network=my-network -p 3001:3001 -d ms-products:1.0 
+587  sudo docker run -d -p 3000:3000 -e PRODUCTS_SERVICE=localhost:3001 -e SHOPPING_CART_SERVICE=localhost:3002 --network my-network ms-frontend:1.0

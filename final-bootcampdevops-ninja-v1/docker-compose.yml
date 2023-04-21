@@ -1,50 +1,36 @@
 version: '3'
+networks:
+  products-devops:
 services:
   frontend:
-    container_name: frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
-      args:
-        APP_VERSION: 1.0.0
-    image: frontend-app
     ports:
       - "3000:3000"
+    environment:
+      - PRODUCTS_SERVICE=http://products:3001
+      - SHOPPING_CART_SERVICE=http://shopping-cart:3002
     networks:
-      - my-network
+      - products-devops
     depends_on:
       - products
-      - shopping-cart   
+      - shopping-cart
+
   products:
-    container_name: products
     build:
       context: ./products
       dockerfile: Dockerfile
-      args:
-        APP_VERSION: 1.0.0
-    image: products-app
     ports:
       - "3001:3001"
-    environment:
-      - PRODUCTS_SERVICE=products
-    hostname: products
     networks:
-      - my-network
+      - products-devops
+
   shopping-cart:
-    container_name: shopping-cart
     build:
       context: ./shopping-cart
       dockerfile: Dockerfile
-      args:
-        APP_VERSION: 1.0.0
-    image: shopping-cart-app
     ports:
       - "3002:3002"
-    environment:
-      - SHOPPING_CART_SERVICE=shopping-cart
-    hostname: shopping-cart
     networks:
-      - my-network
-networks:
-  my-network:
-    driver: bridge
+      - products-devops

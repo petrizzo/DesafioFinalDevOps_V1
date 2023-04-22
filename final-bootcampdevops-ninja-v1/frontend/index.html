@@ -51,7 +51,11 @@
     }
 
     // window.location.href will be the IP or DNS name of EC2 instance, K8s worker node or app LoadBalancer
+<<<<<<< HEAD
+    const response = await fetch('http://localhost:3001/get-products');
+=======
     const response = await fetch(`${window.productsEndpoint}/get-products`);
+>>>>>>> 6bf2fe697fc06a8d9cf66c6c92ada217964d6ef4
     console.log("response", response);
     const jsonData = await response.json();
     console.log("stringified data: " + JSON.stringify(jsonData));
@@ -86,8 +90,13 @@
         // shopping cart already displayed
         return
     }
+<<<<<<< HEAD
+
+    const response = await fetch('http://localhost:3002/get-shopping-cart');
+=======
    
     const response = await fetch(`${window.shoppingCartEndpoint}/get-shopping-cart`);
+>>>>>>> 6bf2fe697fc06a8d9cf66c6c92ada217964d6ef4
     console.log("response", response);
     const jsonData = await response.json();
     console.log("stringified data: " + JSON.stringify(jsonData));

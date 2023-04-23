@@ -1,3 +1,11 @@
+Equipo conformado por:
+
+Edelice González
+Libia María Freites
+Mariángela Petrizzo
+Enis Flores
+Yirli Medina
+
 ### CHALLENGE FINAL Bootcamp DevOps V1
 
 La empresa ZERO Technology, solicita al Equipo de DevOps Trainer, la contenerizacion de su aplicacion "Products DevOps" en la que incluye:

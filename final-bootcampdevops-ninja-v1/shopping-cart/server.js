@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 
 
-app.get('/get-shopping-cart', function (req, res) {
+app.get('/', function (req, res) {
     res.json({ 
         shoppingCart: [{
             product: "laptop", 

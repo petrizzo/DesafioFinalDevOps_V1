@@ -1,19 +1,20 @@
+#Backend de shopping-cart
 FROM node:14-alpine
 
-# Crear directorio de trabajo
-WORKDIR /shopping-cart
+#Directorio de trabajo
+WORKDIR ./shopping-cart
 
-# Copiar archivo de dependencias
-COPY package*.json ./
+#Copiar dependencias
+COPY package.json package-lock.json* ./
 
-# Instalar dependencias
+#Instalar dependencias
 RUN npm install
 
-# Copiar el resto del código
+#Copiar otro codigo
 COPY . .
 
-# Exponer puerto
+#Abrir puertos
 EXPOSE 3002
 
-# Comando para iniciar la aplicación
+#Iniciar
 CMD ["node", "server.js"]

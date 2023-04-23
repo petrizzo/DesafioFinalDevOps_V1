@@ -1,19 +1,20 @@
-#Dockerfile para el servicio de frontend
-
+#Backend de frontend
 FROM node:14-alpine
 
-# Crear directorio de trabajo
-WORKDIR /frontend
+#Directorio de trabajo
+WORKDIR ./frontend
 
-# Copiar archivo de dependencia
+#Copiar dependencias
+COPY package.json package-lock.json* ./
+
+#Instalar dependencias
+RUN npm install
+
+#Copiar otro codigo
 COPY . .
 
-# Instalar dependencias
-RUN npm install --no-optional && npm cache clean --force
-
-# Exponer puerto
+#Abrir puertos
 EXPOSE 3000
 
-# Comando para iniciar la aplicación
-
+#Iniciar
 CMD ["node", "server.js"]

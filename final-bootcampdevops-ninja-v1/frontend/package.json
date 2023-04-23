@@ -4,12 +4,11 @@
     "description": "",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js"
+        "start": "node server.js"
     },
     "author": "ROXS",
-    "license": "ISC",   
+    "license": "ISC",
     "dependencies": {
-      "express": "4.17.1"
+        "express": "4.17.1"
     }
-  }
-  
+}

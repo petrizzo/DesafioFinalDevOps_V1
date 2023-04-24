@@ -1,10 +1,10 @@
 FROM node:14-alpine
 
-WORKDIR /product
+WORKDIR ./products
 
 COPY package.json package-lock.json* ./
 
-RUN npm install --no-optional && npm cache clean --force
+RUN npm install
 
 COPY . .
 

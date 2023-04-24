@@ -1,11 +1,10 @@
-require('dotenv').config();
 let express = require('express');
 let path = require('path');
 let app = express();
 
 // with docker-compose: container-name, with K8s: service-name 
-let productsEndpoint = 'http://products:3001';
-let shoppingCartEndpoint = 'http://shopping-cart:3002';
+let productsEndpoint = process.env.PRODUCTS_SERVICE || 'localhost'
+let shoppingCartEndpoint = process.env.SHOPPING_CART_SERVICE || 'localhost'
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
@@ -72,5 +71,3 @@ app.get('/get-shopping-cart', function (req, res) {
 app.listen(3000, function () {
   console.log("app listening on port 3000!");
 });
-
-

@@ -32,16 +32,19 @@ Aplicacion realizada en express y se expone en el puerto 3002
     
 
 #### Iniciar los contenedores    
+    --------------------------------------------------------------------------------------------
+    PRODUCTS_SERVICE=products
+    SHOPPING_CART_SERVICE=shopping
+    #### A las variables de entorno se les debe pasar el nombre del contenedor, en vez de localhost
+    ----------------------------------------------------------------------------------------------
     docker run --name frontend -d -p 3000:3000 -e PRODUCTS_SERVICE=products -e SHOPPING_CART_SERVICE=shopping --network my-network ms-frontend:1.0
 
-    //usuarios de Linux
-    docker run -d -p 3000:3000 -e PRODUCTS_SERVICE=localhost:3001 -e SHOPPING_CART_SERVICE=localhost:3002 ms-frontend:1.0
-
-    //agregar el contenedor a la misma network
-    docker run --name frontend -d -p 3000:3000 -e PRODUCTS_SERVICE=localhost:3001 -e SHOPPING_CART_SERVICE=localhost:3002 --network my-network ms-frontend:1.0
-
     docker run --name products -d -p 3001:3001 --network my-network ms-products:1.0
+
     docker run --name shopping -d -p 3002:3002 --network my-network ms-shopping-cart:1.0
+
+#### Crear una network:
+docker network create my-network
     
 
 ### Adicional 

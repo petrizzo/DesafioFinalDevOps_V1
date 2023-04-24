@@ -1,10 +1,10 @@
 FROM node:14-alpine
 
 # Crear directorio de trabajo
-WORKDIR /shopping-cart
+WORKDIR ./shopping-cart
 
 # Copiar archivo de dependencias
-COPY package*.json ./
+COPY package.json package-lock.json* ./
 
 # Instalar dependencias
 RUN npm install
@@ -16,4 +16,4 @@ COPY . .
 EXPOSE 3002
 
 # Comando para iniciar la aplicación
-CMD [ "npm", "start" ]
+CMD [ "node", "server.js" ]

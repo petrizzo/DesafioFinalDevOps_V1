@@ -17,16 +17,17 @@
     -e SHOPPING_CART_SERVICE=host.docker.internal \
     ms-frontend:1.0
 
+
+    #### Script para crear los contenedores
+    --------------------------------------------------------------------------------------------
+    PRODUCTS_SERVICE=products
+    SHOPPING_CART_SERVICE=shopping
+    #### A las variables de entorno se les debe pasar el nombre del contenedor, en vez de localhost
+    ----------------------------------------------------------------------------------------------
     docker run --name frontend -d -p 3000:3000 -e PRODUCTS_SERVICE=products -e SHOPPING_CART_SERVICE=shopping --network my-network ms-frontend:1.0
 
-    //usuarios de Linux
-    docker run -d -p 3000:3000 -e PRODUCTS_SERVICE=localhost:3001 -e SHOPPING_CART_SERVICE=localhost:3002 ms-frontend:1.0
-
-    //agregar el contenedor a la misma network
-    docker run --name frontend -d -p 3000:3000 -e PRODUCTS_SERVICE=localhost:3001 -e SHOPPING_CART_SERVICE=localhost:3002 --network my-network ms-frontend:1.0
-
-
     docker run --name products -d -p 3001:3001 --network my-network ms-products:1.0
+
     docker run --name shopping -d -p 3002:3002 --network my-network ms-shopping-cart:1.0
 
 #### Los contenedores deben compartir la misma network para evitar el problema del fetch:
@@ -87,8 +88,28 @@ docker rm -f $(docker ps -a -q)
 2.-Etiquetar la imagen con el nombre de usuario y el nombre de la imagen en Docker Hub.
     docker tag nombre-de-tu-imagen nombre-de-usuario/nombre-de-la-imagen
 
+    docker tag ms-frontend:1.0 libiamfreitesm/ms-frontend:1.0
+    docker tag ms-products:1.0 libiamfreitesm/ms-products:1.0
+    docker tag ms-shopping:1.0 libiamfreitesm/ms-shopping:1.0
+
 3.-Hacer login en Docker Hub desde la línea de comando de Docker.
     docker login
     
 4.-Subir la imagen a Docker Hub.
     docker push nombre-de-usuario/nombre-de-la-imagen
+
+     docker push libiamfreitesm/ms-frontend:1.0
+     docker push libiamfreitesm/ms-products:1.0
+     docker push libiamfreitesm/ms-shopping:1.0
+
+
+#### Para borrar todas las imágenes de Docker de una vez, puedes usar el siguiente comando:
+docker rmi -f $(docker images -q)
+
+#### Para borrar todos los contenedores de Docker de una vez, puedes usar el siguiente comando:
+docker rm -f $(docker ps -a -q)
+
+
+#### Hacer ping entre contenedores
+docker exec frontend ping product
+

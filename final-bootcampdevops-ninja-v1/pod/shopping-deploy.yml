@@ -4,18 +4,17 @@ metadata:
  name: shopping-deploy
  labels: 
   app: shopping
-spec:
- replicas: 3 
-  selector:
-   matchLabels:
-    app: shopping
+spec: 
+ selector:
+  matchLabels:
+   app: shopping
   template:
    metadata:
     labels:
      app: shopping
    spec:
     containers:
-     -name:shopping 
-     image: yirlli/ms-shopping-cart:1.0
-     ports:
-      -containerPort: 3002:3002
+    - name: shopping 
+      image: yirlli/ms-shopping-cart:1.0
+      ports:
+      - containerPort: 3002:3002

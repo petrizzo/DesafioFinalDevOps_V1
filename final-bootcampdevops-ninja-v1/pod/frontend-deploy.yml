@@ -5,17 +5,16 @@ metadata:
  labels:
   app: frontend
 spec:
- replicas: 3
-  selector:
-   matchLabels:
-    app: frontend
+ selector:
+  matchLabels:
+   app: frontend
   template:
    metadata:
     labels:
      app: frontend
    spec:
     containers:
-     -name:frontend
-     image: yirlli/frontend:1.0
-     ports:
-      -containerPort: 3000
+    - name: frontend
+      image: yirlli/frontend:1.0
+      ports:
+      - containerPort: 3000

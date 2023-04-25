@@ -4,18 +4,17 @@ metadata:
  name: products-deploy
  labels: 
   app: products
-spec:
- replicas: 3 
-  selector:
-   matchLabels:
+spec: 
+ selector:
+  matchLabels:
+   app: products
+ template:
+  metadata:
+   labels:
     app: products
-  template:
-   metadata:
-    labels:
-     app: products
-   spec:
-    containers:
-     -name:products 
+  spec:
+   containers:
+   - name: products 
      image: yirlli/ms-products:1.0
      ports:
-      -containerPort: 3001:3001
+     - containerPort: 3001:3001

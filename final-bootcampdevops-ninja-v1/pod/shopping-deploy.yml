@@ -18,4 +18,4 @@ spec:
      -name:shopping 
      image: yirlli/ms-shopping-cart:1.0
      ports:
-      -containerPort: 3001
+      -containerPort: 3002:3002

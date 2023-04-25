@@ -1,21 +1,21 @@
 apiversion: apps/v1
 kind: Deployment
 metadata:
- name: products-deploy
+ name: frontend-deploy
  labels: 
-  app: products
+  app: frontend
 spec:
  replicas: 3 
   selector:
    matchLabels:
-    app: products
+    app: frontend
   template:
    metadata:
     labels:
-     app: products
+     app: frontend
    spec:
     containers:
-     -name:products 
-     image: yirlli/ms-products:1.0
+     -name:frontend 
+     image: yirlli/frontend:1.0
      ports:
-      -containerPort: 3002
+      -containerPort: 3000-3000

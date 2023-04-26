@@ -20,4 +20,4 @@ spec:
       - name: products
         image: yirlli/ms-products:1.0
         ports:
-        - containerPort: 3001:3001
+        - containerPort: 3001

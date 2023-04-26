@@ -1,20 +1,23 @@
-apiversion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: shopping-deploy
- labels: 
-  app: shopping
-spec: 
- selector:
-  matchLabels:
-   app: shopping
+  name: shopping-deploy
+  labels:
+    app: shopping
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app: shopping
+      version: v1
   template:
-   metadata:
-    labels:
-     app: shopping
-   spec:
-    containers:
-    - name: shopping 
-      image: yirlli/ms-shopping-cart:1.0
-      ports:
-      - containerPort: 3002:3002
+    metadata:
+      labels:
+        app: shopping
+        version: v1
+    spec:
+      containers:
+      - name: shopping
+        image: yirlli/ms-shopping-cart:1.0
+        ports:
+        - containerPort: 3002:3002

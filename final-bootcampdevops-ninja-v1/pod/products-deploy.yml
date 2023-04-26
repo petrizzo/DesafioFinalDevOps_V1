@@ -1,20 +1,23 @@
-apiversion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: products-deploy
- labels: 
-  app: products
-spec: 
- selector:
-  matchLabels:
-   app: products
- template:
-  metadata:
-   labels:
+  name: products-deploy
+  labels:
     app: products
-  spec:
-   containers:
-   - name: products 
-     image: yirlli/ms-products:1.0
-     ports:
-     - containerPort: 3001:3001
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app: products
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: products
+        version: v1
+    spec:
+      containers:
+      - name: products
+        image: yirlli/ms-products:1.0
+        ports:
+        - containerPort: 3001:3001

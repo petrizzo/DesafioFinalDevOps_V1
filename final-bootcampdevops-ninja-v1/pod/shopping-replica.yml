@@ -5,7 +5,7 @@ metadata:
   labels:
     name: shopping
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       name: shopping

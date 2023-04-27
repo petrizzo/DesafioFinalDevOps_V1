@@ -6,6 +6,7 @@ metadata:
     app: frontend
     version: v1
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: frontend
@@ -20,4 +21,4 @@ spec:
       - name: frontend
         image: yirlli/frontend:1.0
         ports:
-        - containerPort: 8080
+        - containerPort: 80

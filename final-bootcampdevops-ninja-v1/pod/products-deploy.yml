@@ -6,6 +6,7 @@ metadata:
     app: products
     version: v1
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: products

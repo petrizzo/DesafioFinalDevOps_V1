@@ -1,23 +1,21 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  name: frontend-deploy
+  name: frontend-replica
   labels:
-    app: frontend
-    version: v1
+    name: frontend
 spec:
+  replicas: 2
   selector:
     matchLabels:
-      app: frontend
-      version: v1
+      name: frontend
   template:
     metadata:
       labels:
-        app: frontend
-        version: v1
-    spec:
+        name: frontend
+    spec:        
       containers:
       - name: frontend
         image: yirlli/frontend:1.0
         ports:
-        - containerPort: 8080
+          - containerPort: 80

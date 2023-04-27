@@ -5,7 +5,7 @@ metadata:
   labels:
     name: shopping
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       name: shopping
@@ -18,4 +18,4 @@ spec:
       - name: products
         image: yirlli/ms-shopping-cart:1.0
         ports:
-          - containerPort: 80
+          - containerPort: 8080

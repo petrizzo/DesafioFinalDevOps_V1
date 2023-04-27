@@ -8,4 +8,4 @@ spec:
     app: shopping
   ports:
   - port: 3002
-    targetPort: 80
+    targetPort: 3002

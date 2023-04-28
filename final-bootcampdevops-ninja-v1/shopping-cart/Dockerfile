@@ -9,15 +9,12 @@ COPY package.json package-lock.json* ./
 # Instalar dependencias
 RUN npm install
 
-# Copiar el resto del código
+# Copiar el resto del codigo
 COPY . .
 
 # Exponer puerto
 EXPOSE 3002
 
-# Comando para iniciar la aplicación
-<<<<<<< HEAD
+# Comando para iniciar la aplicacion
 CMD [ "node", "server.js" ]
-=======
-CMD [ "node", "server.js" ]
->>>>>>> prueba-yir
+

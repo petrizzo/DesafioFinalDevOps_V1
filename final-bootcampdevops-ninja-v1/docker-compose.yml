@@ -1,29 +1,7 @@
 version: '3'
-
 services:
   frontend:
     container_name: frontend
-<<<<<<< HEAD
-    image: nombre de usuario/nombre y tag de la imagen      
-    ports:
-      - 3000:3000
-    environment:
-      - PRODUCTS_SERVICE=products  
-      - SHOPPING_CART_SERVICE=shopping-cart    
-    networks:
-      - my-network
-  products:
-    container_name: products
-    image: nombre de usuario/nombre y tag de la imagen
-    ports:
-      - 3001:3000        
-    networks:
-      - my-network
-  shopping-cart:
-    container_name: shopping-cart
-    image: nombre de usuario/nombre y tag de la imagen
-      - 3002:3000            
-=======
     image: yirlli/frontend:1.0
     ports:
       - 3000:3000
@@ -47,10 +25,9 @@ services:
     ports:
       - 3002:3002
     hostname: shopping-cart
->>>>>>> prueba-yir
+
     networks:
       - my-network      
 networks:
   my-network:
-    name: my-network
     driver: bridge

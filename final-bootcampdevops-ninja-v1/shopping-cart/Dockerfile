@@ -16,4 +16,8 @@ COPY . .
 EXPOSE 3002
 
 # Comando para iniciar la aplicación
+<<<<<<< HEAD
 CMD [ "node", "server.js" ]
+=======
+CMD [ "node", "server.js" ]
+>>>>>>> prueba-yir

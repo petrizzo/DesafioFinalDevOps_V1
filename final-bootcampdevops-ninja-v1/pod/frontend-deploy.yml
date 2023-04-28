@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deploy
+  labels:
+    app: frontend
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: frontend
+        version: v1
+    spec:
+      containers:
+      - name: frontend
+        image: yirlli/frontend:1.0
+        env:
+        - name:  PRODUCTS_SERVICE 
+          value: products-services
+        - name: SHOPPING_CART_SERVICE 
+          value: shopping-services
+        ports:
+        - containerPort: 3000

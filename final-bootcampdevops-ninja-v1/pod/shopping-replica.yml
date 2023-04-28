@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: shopping-replica
+  labels:
+    name: shopping
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: shopping
+  template:
+    metadata:
+      labels:
+        name: shopping
+    spec:        
+      containers:
+      - name: products
+        image: yirlli/ms-shopping-cart:1.0
+        ports:
+          - containerPort: 3002

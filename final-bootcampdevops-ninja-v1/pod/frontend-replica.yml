@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend-replica
+  labels:
+    name: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: frontend
+  template:
+    metadata:
+      labels:
+        name: frontend
+    spec:        
+      containers:
+      - name: frontend
+        image: yirlli/frontend:1.0
+        ports:
+          - containerPort: 3000

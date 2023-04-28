@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: products-replica
+  labels:
+    name: products
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: products
+  template:
+    metadata:
+      labels:
+        name: products
+    spec:        
+      containers:
+      - name: products
+        image: yirlli/ms-products:1.0
+        ports:
+          - containerPort: 3001

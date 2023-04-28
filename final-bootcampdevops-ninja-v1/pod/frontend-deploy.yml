@@ -19,5 +19,10 @@ spec:
       containers:
       - name: frontend
         image: yirlli/frontend:1.0
+        env:
+        - name:  PRODUCTS_SERVICE 
+          value: products-services
+        - name: SHOPPING_CART_SERVICE 
+          value: shopping-services
         ports:
         - containerPort: 3000

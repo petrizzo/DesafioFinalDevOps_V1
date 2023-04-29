@@ -1,6 +1,6 @@
-### CHALLENGE FINAL Bootcamp DevOps V1
+## CHALLENGE FINAL Bootcamp DevOps V1
 
-## Equipo integrado por: Yirli Medina, Libia María Freites, Mariángela Petrizzo, Enis Flores y  Edelice González
+### Equipo integrado por: Yirli Medina, Libia María Freites, Mariángela Petrizzo, Enis Flores y  Edelice González
 
 La empresa ZERO Technology, solicita al Equipo de DevOps Trainer, la contenerizacion de su aplicacion "Products DevOps" en la que incluye:
 

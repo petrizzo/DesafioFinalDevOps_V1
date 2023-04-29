@@ -2,6 +2,8 @@
 
 ### Equipo integrado por: Yirli Medina, Libia María Freites, Mariángela Petrizzo, Enis Flores y  Edelice González
 
+### Documentación disponible desde [aquí](https://docs.google.com/document/d/13diHR-qsjYkRBwDzFxlIXKrB-rJ1my4W5hrwYemO8kk/edit?usp=sharing)
+
 La empresa ZERO Technology, solicita al Equipo de DevOps Trainer, la contenerizacion de su aplicacion "Products DevOps" en la que incluye:
 
 - Frontend
